@@ -1,0 +1,52 @@
+.content{
+    @media (min-width: 498px) {
+        max-width: 499px;
+        justify-content: center;
+        position: relative;
+        margin: auto;
+    }
+    text-align: center;
+    .item{
+        display: flex;
+        margin: 10px;
+        img{
+            vertical-align: middle;
+            padding: 5px;
+        }
+        .container-1{
+            display: flex;
+            .index{
+                vertical-align: middle;
+                color: rgba(124, 118, 118, 0.829);
+                margin-right:10px;
+            }
+        }
+        .container-2{
+            p{
+                margin: 0px 10px 10px;
+            }
+        }
+        
+        .app-name{
+            font-weight: 800;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .category{
+            font-size: 12px;
+            vertical-align: middle;
+            text-align: left;
+            color: rgba(124, 118, 118, 0.829);
+        }
+    }   
+}
+
+.odd-image{
+    border-radius: 12px;
+}
+.even-image{
+    border-radius: 36px;
+}
+
+.mat-divider {
+    color: rgba(170, 159, 159, 0.829);
+}

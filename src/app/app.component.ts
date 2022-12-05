@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
+import { ConfigService } from './config/config.service';
+import { entryDto } from './config/entryDto';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-app';
+
+  topApps:entryDto[] = []; 
+  images: string[] = [];
+
+  constructor(public injector: Injector, private configService: ConfigService){
+
+  }
+
+  ngOnInit(){
+    this.configService.getConfig()
+    .subscribe((res) => {
+      if(res.feed.entry != undefined ){
+        this.topApps = res.feed.entry;
+      }
+    });
+  }
+
+  ngAfterViewChecked(){
+    this.topApps.forEach(element => {
+      if(element){
+        if(element['im:image'])
+        this.images.push(element?.['im:image'][0].label == undefined? "image":element?.['im:image'][0].label);
+      }
+    })
+  }
 }
